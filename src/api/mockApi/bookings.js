@@ -4,7 +4,9 @@ export var bookings = [
         status: {
             description: "pending"
         },
+        booking_time:"2024-06-01T09:43:18.476Z",
         start_date: "2024-06-13",
+        end_date: "2024-06-17",
         product: {
             id: 26,
             name: "woman-only",
@@ -43,7 +45,8 @@ export var bookings = [
             day_of_birth: null,
             personnr_lastnr: "",
             requirements: null,
-            last_edit: "2024-06-05"
+            last_edit: "2024-06-05",
+            flag: true
         }
     },
     {
@@ -51,7 +54,9 @@ export var bookings = [
         status: {
             description: "pending"
         },
+        booking_time:"2024-06-01T09:43:18.476Z",
         start_date: "2024-07-21",
+        end_date: "2024-07-25",
         product: {
             id: 25,
             name: "room",
@@ -90,7 +95,8 @@ export var bookings = [
                 day_of_birth: null,
                 personnr_lastnr: "",
                 requirements: null,
-                last_edit: "2024-05-05"
+                last_edit: "2024-05-05",
+                flag: true
         }
     },
     {
@@ -98,7 +104,9 @@ export var bookings = [
         status: {
             description: "pending"
         },
+        booking_time:"2024-06-01T09:43:18.476Z",
         start_date: "2024-08-01",
+        end_date: "2024-08-25",
         product: {
             id: 45,
             name: "room",
@@ -137,7 +145,8 @@ export var bookings = [
             day_of_birth: null,
             personnr_lastnr: "",
             requirements: null,
-            last_edit: "2024-05-23"
+            last_edit: "2024-05-23",
+            flag: false
         }
     },
     {
@@ -145,7 +154,9 @@ export var bookings = [
         status: {
             description: "pending"
         },
+        booking_time:"2024-06-01T09:43:18.476Z",
         start_date: "2024-08-03",
+        end_date: "2024-08-05",
         product: {
             id: 25,
             name: "room",
@@ -184,30 +195,33 @@ export var bookings = [
                 day_of_birth: null,
                 personnr_lastnr: "",
                 requirements: null,
-                last_edit: "2024-05-05"
+                last_edit: "2024-05-05",
+                flag: false
         }
     },
     {
         id: 5,
         status: {
-            description: "pending"
+            description: "confirmed"
         },
+        booking_time:"2024-06-01T09:43:18.476Z",
         start_date: "2024-08-04",
+        end_date: "2024-08-20",
         product: {
-            id: 45,
+            id: 1,
             name: "room",
             description: "5-bäddsrum",
             total_places: 5,
             host: {
                 region: {
-                    id: 3,
-                    name: "Stockholm City"
+                    id: 2,
+                    name: "Trelleborg"
                 },
-                id: 3,
-                name: "Grimmans Akutboende",
-                street: "Parkgatan 48",
+                id: 4,
+                name: "Ny Gemenskap",
+                street: "Kyrkgatan 4",
                 postcode: "",
-                city: "Sundbyberg"
+                city: "Trelleborg"
             },
             type: "room"
         },
@@ -231,30 +245,33 @@ export var bookings = [
             day_of_birth: null,
             personnr_lastnr: "",
             requirements: null,
-            last_edit: "2024-05-23"
+            last_edit: "2024-05-23",
+            flag: false
         }
     },
     {
         id: 6,
         status: {
-            description: "pending"
+            description: "confirmed"
         },
+        booking_time:"2024-06-01T09:43:18.476Z",
         start_date: "2024-08-06",
+        end_date: "2024-08-12",
         product: {
-            id: 45,
+            id: 1,
             name: "room",
             description: "5-bäddsrum",
             total_places: 5,
             host: {
                 region: {
-                    id: 3,
-                    name: "Stockholm City"
+                    id: 2,
+                    name: "Trelleborg"
                 },
-                id: 3,
-                name: "Grimmans Akutboende",
-                street: "Parkgatan 48",
+                id: 4,
+                name: "Ny Gemenskap",
+                street: "Kyrkgatan 4",
                 postcode: "",
-                city: "Sundbyberg"
+                city: "Trelleborg"
             },
             type: "room"
         },
@@ -278,7 +295,58 @@ export var bookings = [
             day_of_birth: null,
             personnr_lastnr: "",
             requirements: null,
-            last_edit: "2024-05-23"
+            last_edit: "2024-05-23",
+            flag: true
+        }
+    },
+    {
+        id: 7,
+        status: {
+            description: "checked_in"
+        },
+        booking_time:"2024-06-01T09:43:18.476Z",
+        start_date: "2024-08-14",
+        end_date: "2024-09-27",
+        product: {
+            id: 25,
+            name: "room",
+            description: "2-bäddsrum",
+            total_places: 2,
+            host: {
+                region: {
+                        id: 3,
+                        name: "Stockholm City"
+                },
+                id: 3,
+                name: "Grimmans Akutboende",
+                street: "Parkgatan 48",
+                postcode: "",
+                city: "Sundbyberg"
+            },
+            type: "room"
+        },
+        user: {
+            region: {
+                id: 2,
+                name: "Farsta"
+                },
+                id: 5,
+                user: 15,
+                first_name: "Johan",
+                last_name: "Johansson",
+                gender: "M",
+                street: "Kyrkogränd 6",
+                postcode: "",
+                city: "Handen",
+                country: "",
+                phone: "0701-401093",
+                email: "johan.johansson@hotmejl.se",
+                unokod: "5224",
+                day_of_birth: null,
+                personnr_lastnr: "",
+                requirements: null,
+                last_edit: "2024-05-05",
+                flag: false
         }
     }
 ];

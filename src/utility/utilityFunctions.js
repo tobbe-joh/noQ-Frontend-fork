@@ -1,4 +1,7 @@
 export const getMonth = (date) => {
+    if (typeof date === 'undefined') {
+        return "NaN";
+    }
     const values = date.split('-');
     var month = '';
     switch(values[1]) {
@@ -30,7 +33,7 @@ export const getMonth = (date) => {
             month="SEP";
             break;
         case '10':
-            month="OCT";
+            month="OKT";
             break;
         case '11':
             month="NOV";
@@ -52,8 +55,19 @@ export const getGender = (gender) => {
 }
 
 export const getDayNumber = (date) => {
+    if (typeof date === 'undefined') {
+        return "NaN";
+    }
     const values = date.split('-');
     return values[2];
+}
+
+export const getDate = (datetime) => {
+    if (typeof datetime === 'undefined') {
+        return "NaN";
+    }
+    const date = datetime.split('T')[0];
+    return date;
 }
 
 export const getStatus = (status) => {
@@ -66,23 +80,30 @@ export const getStatus = (status) => {
             {"id": State.IN_QUEUE, "description": "in_queue"}, // yellow
             {"id": State.RESERVED, "description": "reserved"},
             {"id": State.CONFIRMED, "description": "confirmed"},
+            {"id": State.ADVISED_AGAINST, "description": "advised_against"},
         ]
     */
     if (status === 'accepted') {
-        return "Tilldelat";
+        return "Rekommenderad";
     } else if (status === 'declined') {
         return "Nekad";
     } else if (status === 'pending') {
         return "Avvaktar";
+    } else if (status === 'advised_against') {
+        return "Ej rekommenderad";
     } else if (status === 'checked_in') {
         return "Incheckad";
     } else if (status === 'in_queue') {
         return "I kö";
     } else if (status === 'reserved') {
-        return "Reserverad";
+        return "Tilldelad";
     } else if (status === 'confirmed') {
         return "Bekräftad";
     } else {
         return ""
     }
+}
+
+export const formatPostCode = (postcode) => {
+    return postcode.slice(0, 3) + " " + postcode.slice(3);
 }
