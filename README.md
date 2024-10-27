@@ -41,7 +41,7 @@ Password: P4ssw0rd_for_Te5t+User
 ````
 
 
-## Wiki
+## Wiki 
 [Frontend wiki](https://github.com/noQ-sweden/noQ-Frontend/wiki)
 
 ### Troubleshooting
