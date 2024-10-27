@@ -20,7 +20,7 @@ jobs:
     env:
       PARENT_REPOSITORY: 'tobbe-joh/noq_app_fork'
       CHECKOUT_BRANCH: 'main'
-      PR_AGAINST_BRANCH: 'main'
+      PR_AGAINST_BRANCH: 'stage'
       OWNER: 'tobbe-joh'
 
     steps:
