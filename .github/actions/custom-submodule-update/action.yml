@@ -1,83 +1,40 @@
-name: "GitHub Action Frontend Submodule Updates"
-description: "Update submodules and creates new pull request against parent repository"
-author: "releasehub"
-
-branding:
-  icon: "git-pull-request"
-  color: "yellow"
+name: Create Pull Request
 
 inputs:
   github_token:
-    description: "Github Token"
-    required: true
-  checkout_branch:
-    description: "Branch to checkout"
-    required: false
-    default: "main"
-  pr_against_branch:
-    description: "Parent branch"
+    description: 'GitHub token'
     required: true
   parent_repository:
-    description: "Parent Repository"
+    description: 'Parent repository'
     required: true
-  owner:
-    description: "Owner"
+  branch:
+    description: 'Branch to create PR against'
     required: true
-  label:
-    description: "Create Release Environment label"
+  title:
+    description: 'Title of the PR'
+    required: true
+  body:
+    description: 'Body of the PR'
     required: false
-    default: "Create Release Environment"
 
 runs:
-  using: "composite"
+  using: 'node12'
   steps:
-    - name: Checkout parent repository and branch
-      uses: actions/checkout@v4
-      with:
-        token: ${{ inputs.github_token }}
-        repository: ${{ inputs.parent_repository }}
-        ref: ${{ inputs.checkout_branch }}
-        submodules: true
-        fetch-depth: 0
-
-    - name: Create new branch and push changes
-      shell: bash
+    - name: Create PR
       run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git submodule update --remote
-        git checkout -b $GITHUB_RUN_ID
-        git commit -am "updating submodules"
-        git push --set-upstream origin $GITHUB_RUN_ID
-
-    - name: Create pull request against target branch
-      uses: actions/github-script@v5
-      with:
-        github-token: ${{ inputs.github_token }}
-        script: |
-          await github.rest.pulls.create({
-            owner: '${{ inputs.owner }}',
-            repo: '${{ inputs.parent_repository }}'.split('/')[1].trim(),
-            head: process.env.GITHUB_RUN_ID,
-            base: '${{ inputs.pr_against_branch }}',
-            title: `[Auto-generated] FRONTEND Submodule Updates ID: ${process.env.GITHUB_RUN_ID}`,
-            body: `[Auto-generated] FRONTEND Updates github run id: [${process.env.GITHUB_RUN_ID}]`,
-          });
-
-    - name: Add labels
-      uses: actions/github-script@v5
-      with:
-        github-token: ${{ inputs.github_token }}
-        script: |
-          const res = await github.rest.issues.listForRepo({
-            owner: '${{ inputs.owner }}',
-            repo: '${{ inputs.parent_repository }}'.split('/')[1].trim(),
-          });
-          const pr = res.data.filter(i => i.title.includes(process.env.GITHUB_RUN_ID));
-          const prNumber = pr[0].number;  
-          await github.rest.issues.addLabels({
-            issue_number: prNumber,
-            owner: '${{ inputs.owner }}',
-            repo: '${{ inputs.parent_repository }}'.split('/')[1].trim(),
-            labels: ['${{ inputs.label }}']
+        const { exec } = require('child_process');
+        const token = process.env.GITHUB_TOKEN;
+        const parentRepo = "${{ inputs.parent_repository }}";
+        const branch = "${{ inputs.branch }}";
+        const title = "${{ inputs.title }}";
+        const body = "${{ inputs.body || '' }}";
+        
+        exec(`gh pr create --base ${branch} --title "${title}" --body "${body}" --repo ${parentRepo}`, 
+          { env: { GITHUB_TOKEN: token } }, 
+          (err, stdout, stderr) => {
+            if (err) {
+              console.error(`Error: ${stderr}`);
+              process.exit(1);
+            }
+            console.log(stdout);
           });

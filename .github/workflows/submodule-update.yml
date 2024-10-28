@@ -1,36 +1,26 @@
----
 name: FRONTEND Update Main
 
-#############################
-# Start the job on all push #
-#############################
 on:
   push:
     branches:
       - main
       - master
 
-###############
-# Set the Job #
-###############
 jobs:
-  build:
-    name: FRONTEND Submodule update
+  create_pr:
     runs-on: ubuntu-latest
-    env:
-      PARENT_REPOSITORY: "tobbe-joh/noq_app_fork"
-      CHECKOUT_BRANCH: "main"
-      PR_AGAINST_BRANCH: "main"
-      OWNER: "tobbe-joh"
-
     steps:
-    - uses: actions/checkout@v4
-    - name: run action
-      id: run_action
-      uses: ./
-      with: 
-        github_token: ${{ secrets.RELEASE_HUB_SECRET }}
-        parent_repository: ${{ env.PARENT_REPOSITORY }}
-        checkout_branch: ${{ env.CHECKOUT_BRANCH}}
-        pr_against_branch: ${{ env.PR_AGAINST_BRANCH }}
-        owner: ${{ env.OWNER }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          repository: tobbe-joh/noq_app_fork
+          ref: main
+
+      - name: Create Pull Request
+        uses: ./  # Se till att detta refererar till din custom action
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          parent_repository: tobbe-joh/noq_app_fork
+          branch: main
+          title: 'Update from FRONTEND submodule'
+          body: 'This PR is to notify that the submodule has been updated.'
