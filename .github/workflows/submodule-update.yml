@@ -24,21 +24,13 @@ jobs:
       OWNER: "tobbe-joh"
 
     steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      ####################################
-      # Run the action against code base #
-      ####################################
-      - name: run action
-        id: run_action
-        uses: ./
-        with:
-          github_token: ${{ secrets.RELEASE_HUB_SECRET }}
-          parent_repository: ${{ env.PARENT_REPOSITORY }}
-          checkout_branch: ${{ env.CHECKOUT_BRANCH}}
-          pr_against_branch: ${{ env.PR_AGAINST_BRANCH }}
-          owner: ${{ env.OWNER }}
+    - uses: actions/checkout@v4
+    - name: run action
+      id: run_action
+      uses: ./
+      with: 
+        github_token: ${{ secrets.RELEASE_HUB_SECRET }}
+        parent_repository: ${{ env.PARENT_REPOSITORY }}
+        checkout_branch: ${{ env.CHECKOUT_BRANCH}}
+        pr_against_branch: ${{ env.PR_AGAINST_BRANCH }}
+        owner: ${{ env.OWNER }}
