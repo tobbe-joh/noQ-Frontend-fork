@@ -29,6 +29,8 @@ jobs:
       ##########################
       - name: Checkout Code
         uses: actions/checkout@v4
+        continue-on-error: true
+
 
       ####################################
       # Run the action against code base #
