@@ -61,7 +61,7 @@ runs:
             head: process.env.GITHUB_RUN_ID,
             base: '${{ inputs.pr_against_branch }}',
             title: `[Auto-generated] FRONTEND Submodule Updates ID: ${process.env.GITHUB_RUN_ID}`,
-            body: `[Auto-generated] FRONTEND Updates github run id: [${process.env.GITHUB_RUN_ID}`],
+            body: `[Auto-generated] FRONTEND Updates github run id: [${process.env.GITHUB_RUN_ID}]`,
           });
 
     - name: Add labels
