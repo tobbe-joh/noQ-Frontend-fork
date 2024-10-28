@@ -35,7 +35,7 @@ jobs:
       ####################################
       - name: run action
         id: run_action
-        uses: ./.github/actions/custom-submodule-update
+        uses: ./
         with:
           github_token: ${{ secrets.RELEASE_HUB_SECRET }}
           parent_repository: ${{ env.PARENT_REPOSITORY }}
