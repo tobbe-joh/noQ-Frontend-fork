@@ -15,13 +15,13 @@ on:
 ###############
 jobs:
   build:
-    name: Submodule update
+    name: FRONTEND Submodule update
     runs-on: ubuntu-latest
     env:
-      PARENT_REPOSITORY: 'tobbe-joh/noq_app_fork'
-      CHECKOUT_BRANCH: 'main'
-      PR_AGAINST_BRANCH: 'main'
-      OWNER: 'tobbe-joh'
+      PARENT_REPOSITORY: "tobbe-joh/noq_app_fork"
+      CHECKOUT_BRANCH: "main"
+      PR_AGAINST_BRANCH: "main"
+      OWNER: "tobbe-joh"
 
     steps:
       ##########################
@@ -35,7 +35,7 @@ jobs:
       ####################################
       - name: run action
         id: run_action
-        uses: releasehub-com/github-action-create-pr-parent-submodule@v1
+        uses: ./.github/actions/custom-submodule-update
         with:
           github_token: ${{ secrets.RELEASE_HUB_SECRET }}
           parent_repository: ${{ env.PARENT_REPOSITORY }}
