@@ -31,13 +31,12 @@ jobs:
         uses: actions/checkout@v4
         continue-on-error: true
 
-
       ####################################
       # Run the action against code base #
       ####################################
       - name: run action
         id: run_action
-        uses: ./
+        uses: ./.github/actions/custom-submodule-update
         with:
           github_token: ${{ secrets.RELEASE_HUB_SECRET }}
           parent_repository: ${{ env.PARENT_REPOSITORY }}
