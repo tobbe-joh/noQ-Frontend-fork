@@ -1,5 +1,5 @@
 ---
-name: FRONTEND Update STAGE
+name: FRONTEND Update Main
 
 #############################
 # Start the job on all push #
@@ -35,7 +35,7 @@ jobs:
       ####################################
       - name: run action
         id: run_action
-        uses: ./.github/actions/custom-submodule-update
+        uses: ./.github/actions/custom-submodule-update/action.yml
         with:
           github_token: ${{ secrets.RELEASE_HUB_SECRET }}
           parent_repository: ${{ env.PARENT_REPOSITORY }}
