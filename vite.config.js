@@ -9,4 +9,5 @@ export default defineConfig({
     // eslint-disable-next-line no-undef
     "process.env.NOQ_IS_MOCK_API": JSON.stringify(process.env.NOQ_IS_MOCK_API),
   },
+  base: "./"
 });
