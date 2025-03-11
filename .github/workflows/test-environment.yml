@@ -1,9 +1,9 @@
 name: Static Page Deploy
 
 on:
-  workflow_dispatch:
-
-  workflow_dispatch:
+  pull_request:
+    branches: 
+      - main
 
     steps:
       - name: Checkout repo
