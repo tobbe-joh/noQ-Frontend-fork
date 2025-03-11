@@ -1,4 +1,4 @@
-name: Static page test environment
+name: temporary static test environment
 
 on:
   pull_request:
