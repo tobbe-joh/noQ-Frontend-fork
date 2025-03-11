@@ -1,6 +1,5 @@
 {
   "name": "noq-frontend",
-  "homepage": "https://tobbe-joh.github.io/noQ-Frontend-fork/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
