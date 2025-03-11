@@ -1,9 +1,7 @@
 name: Static Page Deploy
 
 on:
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build:
