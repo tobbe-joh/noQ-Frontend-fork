@@ -121,7 +121,7 @@ export default function LoginPage() {
   return (
     <>
       <SEO
-        title={`FEATURE Inloggning | NoQ - Trygg Plats för att alla förtjänar det`}
+        title={`Inloggning | NoQ - Trygg Plats för att alla förtjänar det`}
       />
       <div className="flex flex-col items-center">
         <div className="mb-12 text-red-600 text-xl font-semibold">
@@ -136,7 +136,7 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col items-center">
               <h1 className="mb-8 text-2xl font-bold text-green-noQ tracking-normal">
-                Välkommen till noQ
+             - THIS IS A NEW FEATURE - Välkommen till noQ
               </h1>
             </div>
             <div className="mb-6">
