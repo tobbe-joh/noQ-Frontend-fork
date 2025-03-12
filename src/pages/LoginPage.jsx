@@ -44,7 +44,6 @@ export default function LoginPage() {
           setLogin({ username, first_name, last_name, usergroups, host });
           setHeader("");
 
-          console.log("self auth trying...");
           setUsername("");
           setPassword("");
 
@@ -54,7 +53,7 @@ export default function LoginPage() {
       })
       .catch((err) => {
         // Better error handling here
-        console.log("Could not fetch user data");
+        console.log("Could not fetch user data.");
       });
   }, []);
 
