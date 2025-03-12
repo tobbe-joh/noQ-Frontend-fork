@@ -44,6 +44,7 @@ export default function LoginPage() {
           setLogin({ username, first_name, last_name, usergroups, host });
           setHeader("");
 
+          console.log("self auth trying...");
           setUsername("");
           setPassword("");
 
