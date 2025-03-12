@@ -53,7 +53,7 @@ export default function LoginPage() {
       })
       .catch((err) => {
         // Better error handling here
-        console.log("Could not fetch user data...");
+        console.log("Could not fetch user data.......");
       });
   }, []);
 
